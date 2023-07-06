@@ -6,24 +6,37 @@ let board = [
   ["", "", ""],
 ];
 
+let playerXWins = 0;
+let playerOWins = 0;
+
 const handleClick = (element) => {
   if (!document.getElementById(element.id).innerHTML) {
+    updateColor(element.id);
     addMarker(element.id);
     updateBoard(element.id);
     checkForWin();
+    playerTurn();
+  }
+};
+
+const updateColor = (id) => {
+  switch (currentMarker) {
+    case "X":
+      document.getElementById(id).style.color = "#6c99bb";
+      break;
+    case "O":
+      document.getElementById(id).style.color = "#e87d3e";
+      break;
   }
 };
 
 const addMarker = (id) => {
-  console.log(`We'll place a mark on square: ${id}`);
   document.getElementById(id).innerHTML = currentMarker;
 };
 
 const updateBoard = (id) => {
   const row = parseInt(id.charAt(0));
   const column = parseInt(id.charAt(2));
-  console.log(`you clicked the sq at ${row} and ${column}`);
-  console.log(board);
   board[row][column] = currentMarker;
 };
 
@@ -31,6 +44,7 @@ const checkForWin = () => {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     setTimeout(() => alert(`Player ${currentMarker} won!`), 300);
     setTimeout(() => resetBoard(), 300);
+    updateWins();
   } else {
     changeMarker();
   }
@@ -79,6 +93,24 @@ const diagonalWin = () => {
   }
 };
 
+const updateWins = () => {
+  currentMarker === "X" ? playerXWins++ : playerOWins++;
+  const playerX = document.querySelector(".player-x");
+  const playerO = document.querySelector(".player-o");
+  if (playerXWins > 0) {
+    playerX.innerHTML = (`Player X has ${playerXWins} win`)
+  }
+  if (playerXWins > 1) {
+    playerX.innerHTML += ('s')
+  }
+  if (playerOWins > 0) {
+    playerO.innerHTML = (`Player O has ${playerOWins} win`)
+  }
+  if (playerOWins > 1) {
+    playerO.innerHTML += ('s')
+  }
+};
+
 const changeMarker = () => {
   currentMarker = currentMarker === "X" ? "O" : "X";
 };
@@ -96,4 +128,52 @@ const resetBoard = () => {
     ["", "", ""],
     ["", "", ""],
   ];
+
+  checkBoard();
 };
+
+const clearWins = () => {
+    document.querySelector(".player-x").innerHTML = null;
+    document.querySelector(".player-o").innerHTML = null;
+    playerXWins = 0;
+    playerOWins = 0;
+}
+
+const changeButton = () => {
+    const button = document.createElement('button');
+    button.innerText = 'Change first player';
+    button.addEventListener('click', () => {
+      currentMarker = currentMarker === "X" ? "O" : "X";
+      playerTurn();
+      document.querySelector(".change-button").innerHTML = null;
+    })
+    document.querySelector(".change-button").appendChild(button);
+}
+
+const playerTurn = () => {
+    const currentPlayer = document.querySelector(".current-player");
+    switch (currentMarker) {
+        case "X":
+          currentPlayer.style.color = "#6c99bb";
+          break;
+        case "O":
+          currentPlayer.style.color = "#e87d3e";
+          break;
+      }
+    currentPlayer.innerHTML = (`Player ${currentMarker}'s turn `);
+}
+
+const checkBoard = () => {
+    if (board = [
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""],
+      ]) {
+        changeButton();
+    } else {
+        document.querySelector(".change-button").innerHTML = null;
+    }
+}
+
+playerTurn();
+checkBoard();

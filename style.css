@@ -9,8 +9,8 @@ table {
 }
 
 td {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   text-align: center;
   border: 5px solid #797979;
   font-size: 100px;
@@ -23,6 +23,20 @@ button {
 
 div {
     margin: 30px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.player-x {
+    color: #6c99bb;
+}
+
+.player-o {
+    color: #e87d3e;
 }
 
 /* 

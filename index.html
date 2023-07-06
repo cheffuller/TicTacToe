@@ -11,15 +11,12 @@
       <div>
         <h1>Welcome to Tic Tac Toe</h1>
         <p>Get ready to play!</p>
-        <button
-          onclick="resetBoard()"
-          type="button"
-          class="btn btn-primary btn-lg"
-          name="button"
-        >
+        <button onclick="resetBoard(); clearWins()" type="button" name="button">
           Restart
         </button>
       </div>
+      <div class="current-player"></div>
+      <div class="change-button"></div>
       <div>
         <table>
           <tr>
@@ -40,6 +37,12 @@
             <td id="2-2" onclick="handleClick(this)"></td>
           </tr>
         </table>
+      </div>
+      <div>
+        <ul>
+          <li class="player-x"></li>
+          <li class="player-o"></li>
+        </ul>
       </div>
     </div>
     <script src="scripts.js"></script>
