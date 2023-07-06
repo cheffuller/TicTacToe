@@ -21,6 +21,7 @@ const handleClick = (element) => {
     updateBoard(element.id);
     checkForWin();
     playerTurn();
+    checkBoard();
   }
 };
 
@@ -195,13 +196,11 @@ const playerTurn = () => {
     }
 }
 
+// console.log(arr.every(element => element === null));
+
 // function that displays the "Change first player" button only if the board is empty
 const checkBoard = () => {
-    if (board = [
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""],
-      ]) {
+    if (board.toString() === ',,,,,,,,') {
         changeButton();
     } else {
         document.querySelector(".change-button").innerHTML = null;
