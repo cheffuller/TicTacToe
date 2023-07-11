@@ -82,7 +82,7 @@ const verticalWin = () => {
     (board[0][0] === "X" && board[1][0] === "X" && board[2][0] === "X") ||
     (board[0][1] === "X" && board[1][1] === "X" && board[2][1] === "X") ||
     (board[0][2] === "X" && board[1][2] === "X" && board[2][2] === "X") ||
-    (board[0][0] === "O" && board[1][1] === "O" && board[2][0] === "O") ||
+    (board[0][0] === "O" && board[1][0] === "O" && board[2][0] === "O") ||
     (board[0][1] === "O" && board[1][1] === "O" && board[2][1] === "O") ||
     (board[0][2] === "O" && board[1][2] === "O" && board[2][2] === "O")
   ) {
@@ -146,7 +146,6 @@ const resetBoard = () => {
     console.log(squares[i]);
     squares[i].innerHTML = null;
   }
-
   board = [
     ["", "", ""],
     ["", "", ""],
@@ -169,7 +168,7 @@ const changeButton = () => {
     const button = document.createElement('button');
     button.innerText = 'Change first player';
     button.addEventListener('click', () => {
-      currentMarker = currentMarker === "X" ? "O" : "X";
+      changeMarker();
       playerTurn();
       document.querySelector(".change-button").innerHTML = null;
     })
@@ -196,7 +195,6 @@ const playerTurn = () => {
     }
 }
 
-// console.log(arr.every(element => element === null));
 
 // function that displays the "Change first player" button only if the board is empty
 const checkBoard = () => {
@@ -217,7 +215,7 @@ const addPlayer = () => {
     playerXButton.innerText = 'Player X';
     playerXButton.addEventListener('click', () => {
       playerXName = document.querySelector(".player-x-name").value;
-      document.querySelector(".add-player-x").innerHTML = null;
+      document.querySelector(".add-player-x").innerHTML = `Player X: ${playerXName}`;
     })
     document.querySelector(".add-player-x").appendChild(playerXButton);
 
@@ -230,7 +228,7 @@ const addPlayer = () => {
     playerOButton.innerText = 'Player O';
     playerOButton.addEventListener('click', () => {
       playerOName = document.querySelector(".player-o-name").value;
-      document.querySelector(".add-player-o").innerHTML = null;
+      document.querySelector(".add-player-o").innerHTML = `Player O: ${playerOName}`;
     })
     document.querySelector(".add-player-o").appendChild(playerOButton);
 }
