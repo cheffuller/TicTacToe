@@ -170,7 +170,7 @@ const changeButton = () => {
     button.addEventListener('click', () => {
       changeMarker();
       playerTurn();
-      document.querySelector(".change-button").innerHTML = null;
+      document.querySelector(".change-button").innerHTML = null
     })
     document.querySelector(".change-button").appendChild(button);
 }

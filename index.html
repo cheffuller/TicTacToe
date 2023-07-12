@@ -18,37 +18,26 @@
         <div class="add-player-x"></div>
         <div class="add-player-o"></div>
       </div>
-      <div>
-        <table>
-          <tr>
-            <div class="scoreboard">Scoreboard</div>
-          </tr>
-          <tr>
-            <div class="player-x"></div>
-          </tr>
-          <tr>
-            <div class="player-o"></div>
-          </tr>
-        </table>
+      <div class="scoreboard">
+        <div>Scoreboard</div>
+        <div class="player-x"></div>
+        <div class="player-o"></div>
       </div>
       <div class="display-right">
         <div class="change-button"></div>
         <button onclick="resetBoard(); clearWins()" type="button" name="button">
           Restart Game
         </button>
-        <div class="current-player"></div>
       </div>
     </div>
+    <div class="current-player"></div>
     <div>
       <table>
         <tr>
-          <!-- Each table-data (td) has an id that matches it's position in the array or arrays [0][1] -->
           <td id="0-0" onclick="handleClick(this)"></td>
           <td id="0-1" onclick="handleClick(this)"></td>
           <td id="0-2" onclick="handleClick(this)"></td>
         </tr>
-        <tr>
-          <!-- onclick calls a function called handleClick and passes itself to it("this") -->
           <td id="1-0" onclick="handleClick(this)"></td>
           <td id="1-1" onclick="handleClick(this)"></td>
           <td id="1-2" onclick="handleClick(this)"></td>

@@ -19,6 +19,20 @@ td {
 button {
   background-color: #797979;
   color: #d6d6d6;
+  border: 1px solid #d6d6d6;
+  padding: 4px;
+  margin: 0px 10px;
+}
+
+button,
+.scoreboard {
+  border-radius: 3px;
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  color: #b4d273;
+  border-color: #b4d273;
 }
 
 div {
@@ -44,28 +58,16 @@ ul {
 .display {
     display: flex;
     margin: auto;
-    border: 1px solid white;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-.display-left {
-    /* margin: auto; */
-    border: 1px solid black;
+.scoreboard {
+  border: 1px solid #d6d6d6;
 }
 
+.scoreboard,
+.display-left,
 .display-right {
-    /* margin: auto; */
-    border: 1px solid black;
+  min-width: 200px;
 }
-
-/* 
-•	Background: (46, 46, 46); #2e2e2e
-•	Comments: (121, 121, 121); #797979
-•	White: (214, 214, 214); #d6d6d6
-•	Yellow: (229, 181, 103); #e5b567
-•	Green: (180, 210, 115); #b4d273
-•	Orange: (232, 125, 62); #e87d3e
-•	Purple: (158, 134, 200); #9e86c8
-•	Pink: (176, 82, 121); #b05279
-•	Blue: (108, 153, 187); #6c99bb 
-*/
